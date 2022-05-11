@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const mongoose = require("mongoose");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -40,4 +41,8 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+app.set("port", process.env.PORT || 9000);
+
+app.listen(app.get("port"), () => {
+  console.log(`Express server listening on port ${app.get("port")}`);
+});
