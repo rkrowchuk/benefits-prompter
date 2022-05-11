@@ -4,3 +4,7 @@ const app = express();
 app.listen(9000, function () {
   console.log("Listening on 9000");
 });
+
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
