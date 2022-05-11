@@ -12,5 +12,6 @@
     "http-errors": "~1.6.3",
     "mongoose": "^6.3.3",
     "morgan": "~1.9.1"
-  }
+  },
+  "proxy": "http://localhost:9000"
 }
