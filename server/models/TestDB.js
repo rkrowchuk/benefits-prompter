@@ -15,5 +15,5 @@ const TestSchema = new mongoose.Schema({
   },
 });
 
-const TestDB = mongoose.model("TestDB", TestSchema);
+const TestDB = mongoose.model("testDB", TestSchema);
 module.exports = TestDB;
