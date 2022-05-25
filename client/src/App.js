@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import Register from "./components/Register";
 
 export default function App() {
   const [data, setData] = useState(null);
@@ -13,7 +14,7 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{!data ? "Loading..." : data}</p>
+        <Register />
       </header>
     </div>
   );
