@@ -1,16 +1,41 @@
+import { useState } from "react";
+
 export default function Register() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    birthdate: "",
+  });
+
+  function handleChange(e) {
+    // console.log("e", e);
+    setUser({ ...user, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("user", user);
+  }
+
   return (
     <div>
       Register
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
-          Name: <input type="text" name="name" />
+          Name:
+          <input
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={user.name || ""}
+          />
         </label>
         <label>
-          Email: <input type="text" name="email" />
+          Email: <input type="text" name="email" onChange={handleChange} />
         </label>
         <label>
-          D.O.B: <input type="text" name="dob" />
+          Birthdate:
+          <input type="text" name="birthdate" onChange={handleChange} />
         </label>
         <label>
           Password: <input type="text" name="password" />
