@@ -18,6 +18,22 @@ export default function Register() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("user", user);
+    const postURL = "http://localhost:9000/"
+    fetch(postURL, {
+      method: 'POST',
+      mode: "no-cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(user)
+    })
+    .then(()=>{
+      alert("User has been added to the database");
+    })
+    .catch((err)=> {
+      console.log("error adding user", err);
+    })
   }
 
   return (

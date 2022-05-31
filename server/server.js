@@ -20,12 +20,14 @@ app.listen(9000, function () {
 
 const TestModel = require("./models/TestDB");
 
-app.get("/", (req, res) => {
+app.post("/", (req, res) => {
   const user = new TestModel({
-    userName: "Frosty",
-    userEmail: "frosty@fake.com",
-    userBirthday: "2021-11-12",
+    userName: "Isaac",
+    userEmail: "isaac@fake.com",
+    userBirthday: "2012-11-12",
   });
+  console.log("req", req);
+  console.log("res", res.data);
   user
     .save()
     .then(() => {
