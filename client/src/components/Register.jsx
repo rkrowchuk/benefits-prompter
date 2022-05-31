@@ -1,6 +1,6 @@
 import { useState } from "react";
 import bcrypt from "bcryptjs";
-const salt = bcrypt.genSaltSync(10)
+const salt = bcrypt.genSaltSync(10);
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -20,13 +20,19 @@ export default function Register() {
     console.log("user", user);
     const postURL = "http://localhost:9000/"
     fetch(postURL, {
-      method: 'POST',
+      method: "POST",
       mode: "no-cors",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-      body: JSON.stringify(user)
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify("Hello body"),
+      // body: JSON.stringify({
+      //   name: user.name,
+      //   email: user.email,
+      //   birthdate: user.birthdate,
+      //   password: user.password
+      // })
     })
     .then(()=>{
       alert("User has been added to the database");
