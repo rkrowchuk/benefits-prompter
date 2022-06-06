@@ -19,14 +19,14 @@ export default function Register() {
     e.preventDefault();
     console.log("user", user);
     const postURL = "http://localhost:9000/"
-    fetch(postURL, {
+    return fetch(postURL, {
       method: "POST",
       mode: "no-cors",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify("Hello body"),
+      body: JSON.stringify(user),
       // body: JSON.stringify({
       //   name: user.name,
       //   email: user.email,
@@ -36,6 +36,9 @@ export default function Register() {
     })
     .then(()=>{
       alert("User has been added to the database");
+    })
+      .then((data) => { 
+        console.log("data", data);
     })
     .catch((err)=> {
       console.log("error adding user", err);
