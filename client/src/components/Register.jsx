@@ -24,7 +24,8 @@ export default function Register() {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => console.log("res", res))
+      .then(setUser({ name: "" })) //resetting controlled component (name)
+      .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
       .catch((err) => {
         console.log("**error adding user**", err);
       });
