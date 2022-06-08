@@ -43,9 +43,9 @@ app.get("/new", (req, res) => {
 
 app.post("/new", (req, res) => {
   const user = new TestModel({
-    userName: "Isaac",
-    userEmail: "isaac@fake.com",
-    userBirthday: "2012-11-12",
+    userName: req.body.name,
+    userEmail: req.body.email,
+    userBirthday: req.body.birthdate,
   });
   user.save().catch((err) => {
     console.log("error:", err);
