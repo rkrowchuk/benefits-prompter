@@ -3,19 +3,24 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 const bcrypt = require("bcrypt");
+const cors = require("cors");
 const saltRounds = 10;
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({ 
-  extended: true,
-  limit: '50mb',
-  parameterLimit: 100000}));
-app.use(bodyParser.json({
-  limit: '50mb',
-  parameterLimit: 100000
-}));
+app.use(cors());
 
+app.use(morgan("dev"));
+
+app.use(express.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+    limit: "50mb",
+    parameterLimit: 100000,
+  })
+);
+app.use(bodyParser.json());
 
 mongoose.connect(
   "mongodb+srv://rkrowchuk:BenefitsPassword@benefitsdb.qdooj.mongodb.net/testDB?retryWrites=true&w=majority",
@@ -30,8 +35,20 @@ app.listen(9000, function () {
 
 const TestModel = require("./models/TestDB");
 
-app.post("/", (req, res) => {
+app.get("/", (req, res) => {
+  // console.log("res", res);
   console.log("req.body", req.body);
+  res.send("Welcome!");
+});
+
+app.get("/new", (req, res) => {
+  // console.log("res", res);
+  console.log("req.body", req.body);
+  res.send("New User!");
+});
+
+app.post("/new", (req, res) => {
+  console.log("req", req);
   // console.log("res", res);
   const user = new TestModel({
     userName: "Isaac",
