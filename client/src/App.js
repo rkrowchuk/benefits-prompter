@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import Register from "./components/Register";
+import Login from "./components/Login";
 
 export default function App() {
   const [data, setData] = useState(null);
@@ -15,6 +16,7 @@ export default function App() {
     <div className="App">
       <header className="App-header">
         <Register />
+        <Login />
       </header>
     </div>
   );
