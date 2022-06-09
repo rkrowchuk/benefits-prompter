@@ -49,9 +49,20 @@ app.post("/register", (req, res) => {
     userBirthday: req.body.birthdate,
     userPassword: hashedPass,
   });
-  user.save().catch((err) => {
-    console.log("error:", err);
-  });
+  TestModel.findOne({ userEmail: req.body.email }, (err, success) => {
+    if (success) {
+      console.log("There is already a user with this email");
+    } else {
+      user.save()
+      .then(() => {
+        console.log("New user was created successfully");
+      })
+      .catch((err) => {
+        console.log("error:", err);
+      });
+    }
+  })
+  
 });
 
 app.get("/login", (req, res) => {
