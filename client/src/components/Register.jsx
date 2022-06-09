@@ -8,6 +8,7 @@ export default function Register() {
     email: "",
     birthdate: "",
     password: "",
+    confirmPassword: ""
   });
 
   function handleChange(e) {
@@ -24,8 +25,8 @@ export default function Register() {
         "Content-Type": "application/json",
       },
     })
-      .then(setUser({ name: "" })) //resetting controlled component (name)
-      .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
+      .then(setUser({ name: "", email: "", birthdate: "", password: "", confirmPassword: "" })) //resetting controlled component (name)
+      // .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
       .catch((err) => {
         console.log("**error adding user**", err);
       });
@@ -45,17 +46,40 @@ export default function Register() {
           />
         </label>
         <label>
-          Email: <input type="text" name="email" onChange={handleChange} />
+          Email: 
+          <input 
+          type="text" 
+          name="email" 
+          onChange={handleChange} 
+          value={user.email || ""}
+          />
         </label>
         <label>
           Birthdate:
-          <input type="text" name="birthdate" onChange={handleChange} />
+          <input 
+          type="text" 
+          name="birthdate" 
+          onChange={handleChange} 
+          value={user.birthdate || ""}
+          />
         </label>
         <label>
-          Password: <input type="text" name="password" />
+          Password: 
+          <input 
+          type="text" 
+          name="password" 
+          onChange={handleChange} 
+          value= {user.password || ""}
+          />
         </label>
         <label>
-          Confirm Password: <input type="text" name="confirm-password" />
+          Confirm Password: 
+          <input 
+          type="text" 
+          name="confirmPassword" 
+          onChange={handleChange} 
+          value= {user.confirmPassword || ""}
+          />
         </label>
         <button type="submit">Submit</button>
       </form>
