@@ -42,10 +42,18 @@ app.get("/new", (req, res) => {
 });
 
 app.post("/new", (req, res) => {
+  const hashedPass = bcrypt.hashSync(req.body.password, saltRounds);
+  // const hashedPass = bcrypt.genSalt(saltRounds, function(err, salt) {
+  //   bcrypt.hash(req.body.password, salt, function(err, hash) {
+  //     console.log("password hashed");
+  //   })
+  // })
+  console.log("hashedPass", hashedPass);
   const user = new TestModel({
     userName: req.body.name,
     userEmail: req.body.email,
     userBirthday: req.body.birthdate,
+    userPassword: hashedPass
   });
   user.save().catch((err) => {
     console.log("error:", err);

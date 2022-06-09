@@ -13,6 +13,10 @@ const TestSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  userPassword: {
+    type: String,
+    required: true,
+  }
 });
 
 const TestDB = mongoose.model("testDB", TestSchema);
