@@ -49,8 +49,8 @@ app.post("/register", (req, res) => {
     userBirthday: req.body.birthdate,
     userPassword: hashedPass,
   });
-  TestModel.findOne({ userEmail: req.body.email }, (err, success) => {
-    if (success) {
+  TestModel.findOne({ userEmail: req.body.email }, (err, registeredEmail) => {
+    if (registeredEmail) {
       console.log("There is already a user with this email");
     } else {
       user.save()
