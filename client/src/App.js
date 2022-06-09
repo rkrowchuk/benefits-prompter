@@ -1,23 +1,18 @@
 import { React, useEffect, useState } from "react";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("/api")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data.message))
-  //     .catch((err) => console.log("error:", err));
-  // }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Register />
-        <Login />
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
