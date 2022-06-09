@@ -66,7 +66,7 @@ export default function Register() {
         <label>
           Password: 
           <input 
-          type="text" 
+          type="password" 
           name="password" 
           onChange={handleChange} 
           value= {user.password || ""}
@@ -75,7 +75,7 @@ export default function Register() {
         <label>
           Confirm Password: 
           <input 
-          type="text" 
+          type="password" 
           name="confirmPassword" 
           onChange={handleChange} 
           value= {user.confirmPassword || ""}
