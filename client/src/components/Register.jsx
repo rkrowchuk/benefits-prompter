@@ -1,6 +1,4 @@
 import { useState } from "react";
-import bcrypt from "bcryptjs";
-const salt = bcrypt.genSaltSync(10);
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -8,7 +6,7 @@ export default function Register() {
     email: "",
     birthdate: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   function handleChange(e) {
@@ -17,19 +15,29 @@ export default function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const postURL = "http://localhost:9000/new";
-    return fetch(postURL, {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(setUser({ name: "", email: "", birthdate: "", password: "", confirmPassword: "" })) //resetting controlled component (name)
-      // .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
-      .catch((err) => {
-        console.log("**error adding user**", err);
-      });
+    const postURL = "http://localhost:9000/register";
+    return (
+      fetch(postURL, {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then(
+          setUser({
+            name: "",
+            email: "",
+            birthdate: "",
+            password: "",
+            confirmPassword: "",
+          })
+        ) //resetting controlled component (name)
+        // .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
+        .catch((err) => {
+          console.log("**error adding user**", err);
+        })
+    );
   }
 
   return (
@@ -46,39 +54,39 @@ export default function Register() {
           />
         </label>
         <label>
-          Email: 
-          <input 
-          type="text" 
-          name="email" 
-          onChange={handleChange} 
-          value={user.email || ""}
+          Email:
+          <input
+            type="text"
+            name="email"
+            onChange={handleChange}
+            value={user.email || ""}
           />
         </label>
         <label>
           Birthdate:
-          <input 
-          type="text" 
-          name="birthdate" 
-          onChange={handleChange} 
-          value={user.birthdate || ""}
+          <input
+            type="text"
+            name="birthdate"
+            onChange={handleChange}
+            value={user.birthdate || ""}
           />
         </label>
         <label>
-          Password: 
-          <input 
-          type="password" 
-          name="password" 
-          onChange={handleChange} 
-          value= {user.password || ""}
+          Password:
+          <input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={user.password || ""}
           />
         </label>
         <label>
-          Confirm Password: 
-          <input 
-          type="password" 
-          name="confirmPassword" 
-          onChange={handleChange} 
-          value= {user.confirmPassword || ""}
+          Confirm Password:
+          <input
+            type="password"
+            name="confirmPassword"
+            onChange={handleChange}
+            value={user.confirmPassword || ""}
           />
         </label>
         <button type="submit">Submit</button>
