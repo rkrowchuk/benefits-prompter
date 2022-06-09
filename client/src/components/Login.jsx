@@ -43,7 +43,7 @@ export default function Login() {
             type="text"
             name="email"
             onChange={handleChange}
-            // value={user.email || ""}
+            value={user.email || ""}
           />
         </label>
         <label>
@@ -52,7 +52,7 @@ export default function Login() {
             type="password"
             name="password"
             onChange={handleChange}
-            // value={user.password || ""}
+            value={user.password || ""}
           />
         </label>
         <button type="submit">Submit</button>
