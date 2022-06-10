@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -14,31 +14,31 @@ export default function Register() {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
     const postURL = "http://localhost:9000/register";
-    return (
-      fetch(postURL, {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then(
-          setUser({
-            name: "",
-            email: "",
-            birthdate: "",
-            password: "",
-            confirmPassword: "",
-          })
-        ) //resetting controlled component (name)
-        // .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
-        .catch((err) => {
-          console.log("**error adding user**", err);
+    return fetch(postURL, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(
+        setUser({
+          name: "",
+          email: "",
+          birthdate: "",
+          password: "",
+          confirmPassword: "",
         })
-    );
+      )
+      .then(navigate("/planinput"))
+      .catch((err) => {
+        console.log("**error adding user**", err);
+      });
   }
 
   return (
@@ -92,7 +92,9 @@ export default function Register() {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <Link to="/" className="login-link">Already have an account? Login here.</Link>
+      <Link to="/" className="login-link">
+        Already have an account? Login here.
+      </Link>
     </div>
   );
 }
