@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function PlanInput() {
+  // const [inputFields, setInputFields] = useState([ { RenewalDate: "", Category: ""}])
   return (
     <div>
       Plan Input
@@ -30,7 +32,10 @@ export default function PlanInput() {
           <option value="disability">Disability</option>
           <option value="other">Other</option>
         </select>
+        <label>Add a category</label>
+        <input type="text"></input>
       </form>
+      <button>Submit</button>
     </div>
   );
 }
