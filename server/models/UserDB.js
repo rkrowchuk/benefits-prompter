@@ -16,8 +16,8 @@ const TestSchema = new mongoose.Schema({
   userPassword: {
     type: String,
     required: true,
-  }
+  },
 });
 
-const TestDB = mongoose.model("testDB", TestSchema);
-module.exports = TestDB;
+const UserDB = mongoose.model("users", TestSchema);
+module.exports = UserDB;

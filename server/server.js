@@ -21,7 +21,7 @@ app.use(
 app.use(bodyParser.json());
 
 mongoose.connect(
-  "mongodb+srv://rkrowchuk:BenefitsPassword@benefitsdb.qdooj.mongodb.net/testDB?retryWrites=true&w=majority",
+  "mongodb+srv://rkrowchuk:BenefitsPassword@benefitsdb.qdooj.mongodb.net/users?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
   }
@@ -31,7 +31,7 @@ app.listen(9000, function () {
   console.log("Listening on 9000");
 });
 
-const TestModel = require("./models/TestDB");
+const UserModel = require("./models/UserDB");
 
 app.get("/", (req, res) => {
   res.send("Welcome!");
@@ -43,26 +43,26 @@ app.get("/register", (req, res) => {
 
 app.post("/register", (req, res) => {
   const hashedPass = bcrypt.hashSync(req.body.password, saltRounds);
-  const user = new TestModel({
+  const user = new UserModel({
     userName: req.body.name,
     userEmail: req.body.email,
     userBirthday: req.body.birthdate,
     userPassword: hashedPass,
   });
-  TestModel.findOne({ userEmail: req.body.email }, (err, registeredEmail) => {
+  UserModel.findOne({ userEmail: req.body.email }, (err, registeredEmail) => {
     if (registeredEmail) {
       console.log("There is already a user with this email");
     } else {
-      user.save()
-      .then(() => {
-        console.log("New user was created successfully");
-      })
-      .catch((err) => {
-        console.log("error:", err);
-      });
+      user
+        .save()
+        .then(() => {
+          console.log("New user was created successfully");
+        })
+        .catch((err) => {
+          console.log("error:", err);
+        });
     }
-  })
-  
+  });
 });
 
 app.get("/login", (req, res) => {
@@ -71,7 +71,7 @@ app.get("/login", (req, res) => {
 
 app.post("/login", (req, res) => {
   console.log("req", req.body.password);
-  TestModel.findOne({ userEmail: req.body.email }, (err, success) => {
+  UserModel.findOne({ userEmail: req.body.email }, (err, success) => {
     if (
       !success ||
       !bcrypt.compareSync(req.body.password, success.userPassword)
