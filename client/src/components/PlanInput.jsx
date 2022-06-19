@@ -4,7 +4,9 @@ import Form from "./Category";
 
 export default function PlanInput() {
   //App.js is parent component
-  // const [inputFields, setInputFields] = useState([ { RenewalDate: "", Category: ""}])
+  const [inputFields, setInputFields] = useState([{ category: "", amountCovered: "" }])
+
+
 
   //Goals:
   // 1. Render each chosen category in a list within the <form>
@@ -15,31 +17,31 @@ export default function PlanInput() {
     <div>
       Plan Input
       <form>
-        <label>
-          Renewal Date:<input type="date"></input>
-        </label>
         <label>Category:</label>
-        <select>
-          <option value="ambulance">Ambulance</option>
-          <option value="clinic-visit">Clinic Visit</option>
-          <option value="counselling">Counselling</option>
-          <option value="dental">Dental</option>
-          <option value="disability">Disability</option>
-          <option value="fertility">Fertility</option>
-          <option value="health-spending">Health Spending</option>
-          <option value="massage">Massage</option>
-          <option value="orthodontics">Orthodontics</option>
-          <option value="orthotics">Orthotics</option>
+        <input type="text"></input>
+        <label>Amount Covered</label>
+        <input type="text"></input>
+        {/* <select>
+          <option name="Category" value="ambulance">Ambulance</option>
+          <option name="Category" value="clinic-visit">Clinic Visit</option>
+          <option name="Category" value="counselling">Counselling</option>
+          <option name="Category" value="dental">Dental</option>
+          <option name="Category" value="disability">Disability</option>
+          <option name="Category" value="fertility">Fertility</option>
+          <option name="Category" value="health-spending">Health Spending</option>
+          <option name="Category" value="massage">Massage</option>
+          <option name="Category" value="orthodontics">Orthodontics</option>
+          <option name="Category" value="orthotics">Orthotics</option>
 
-          <option value="physio">Physiotherapy</option>
-          <option value="prescription">Prescription</option>
-          <option value="psychologist">Psychologist</option>
-          <option value="travel-insurance">Travel Insurance</option>
-          <option value="vaccinations">Vaccinations</option>
-          <option value="vision">Vision</option>
+          <option name="Category" value="physio">Physiotherapy</option>
+          <option name="Category" value="prescription">Prescription</option>
+          <option name="Category" value="psychologist">Psychologist</option>
+          <option name="Category" value="travel-insurance">Travel Insurance</option>
+          <option name="Category" value="vaccinations">Vaccinations</option>
+          <option name="Category" value="vision">Vision</option>
 
           {/* <option value="other">Other</option> */}
-        </select>
+        {/* </select> */}
         {/* <label>Add a category</label>
     <input type="text"></input> */}
       </form>
