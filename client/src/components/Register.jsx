@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Register() {
+export default function Register(props) {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -18,6 +18,7 @@ export default function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    props.handleLogin(user);
     const postURL = "http://localhost:9000/register";
     return fetch(postURL, {
       method: "POST",

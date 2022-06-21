@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function Login() {
+export default function Login(props) {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -12,6 +12,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    props.handleLogin(user);
     const postURL = "http://localhost:9000/login";
     return (
       fetch(postURL, {
@@ -58,7 +59,9 @@ export default function Login() {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <Link to="/register" className="reg-link">Don't have an account?</Link>
+      <Link to="/register" className="reg-link">
+        Don't have an account?
+      </Link>
     </div>
   );
 }
