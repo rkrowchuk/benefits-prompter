@@ -27,6 +27,11 @@ export default function PlanInput() {
     console.log(inputFields);
   };
 
+  const removeFields = (index) => {
+    let data = [...inputFields];
+    data.splice(index, 1);
+    setInputFields(data);
+  };
   //Goals:
   // 1. Render each chosen category in a list within the <form>
 
@@ -51,6 +56,7 @@ export default function PlanInput() {
                 value={input.amount}
                 onChange={(event) => handleFormChange(index, event)}
               />
+              <button onClick={() => removeFields(index)}>Remove</button>
             </div>
           );
         })}
