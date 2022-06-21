@@ -19,8 +19,12 @@ export default function PlanInput() {
 
   const addFields = () => {
     let newCategory = { category: "", amount: 0 };
-
     setInputFields([...inputFields, newCategory]);
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+    console.log(inputFields);
   };
 
   //Goals:
@@ -31,7 +35,7 @@ export default function PlanInput() {
   return (
     <div>
       Plan Input
-      <form>
+      <form onSubmit={submit}>
         {inputFields.map((input, index) => {
           return (
             <div key={index}>
@@ -52,7 +56,7 @@ export default function PlanInput() {
         })}
       </form>
       <button onClick={addFields}>Add Category</button>
-      <button>Submit Plan</button>
+      <button onClick={submit}>Submit Plan</button>
     </div>
   );
 }
