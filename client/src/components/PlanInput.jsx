@@ -33,9 +33,9 @@ export default function PlanInput() {
     setInputFields(data);
   };
   //Goals:
-  // 1. Render each chosen category in a list within the <form>
+  // 1. Update the state and send the list of categories to the database (associate with user as well)
 
-  // 2. Update the state and send the list of categories to the database (associate with user as well)
+  // 2. retrieve localStorage (user email) to send it to backend with inputFields
 
   return (
     <div>
