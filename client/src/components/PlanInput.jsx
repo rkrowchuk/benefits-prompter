@@ -4,9 +4,24 @@ import Form from "./Category";
 
 export default function PlanInput() {
   //App.js is parent component
-  const [inputFields, setInputFields] = useState([{ category: "", amountCovered: "" }])
+  const [inputFields, setInputFields] = useState([
+    {
+      category: "",
+      amount: 0,
+    },
+  ]);
 
+  const handleFormChange = (index, event) => {
+    let data = [...inputFields];
+    data[index][event.target.name] = event.target.value;
+    setInputFields(data);
+  };
 
+  const addFields = () => {
+    let newCategory = { category: "", amount: 0 };
+
+    setInputFields([...inputFields, newCategory]);
+  };
 
   //Goals:
   // 1. Render each chosen category in a list within the <form>
@@ -17,35 +32,26 @@ export default function PlanInput() {
     <div>
       Plan Input
       <form>
-        <label>Category:</label>
-        <input type="text"></input>
-        <label>Amount Covered</label>
-        <input type="text"></input>
-        {/* <select>
-          <option name="Category" value="ambulance">Ambulance</option>
-          <option name="Category" value="clinic-visit">Clinic Visit</option>
-          <option name="Category" value="counselling">Counselling</option>
-          <option name="Category" value="dental">Dental</option>
-          <option name="Category" value="disability">Disability</option>
-          <option name="Category" value="fertility">Fertility</option>
-          <option name="Category" value="health-spending">Health Spending</option>
-          <option name="Category" value="massage">Massage</option>
-          <option name="Category" value="orthodontics">Orthodontics</option>
-          <option name="Category" value="orthotics">Orthotics</option>
-
-          <option name="Category" value="physio">Physiotherapy</option>
-          <option name="Category" value="prescription">Prescription</option>
-          <option name="Category" value="psychologist">Psychologist</option>
-          <option name="Category" value="travel-insurance">Travel Insurance</option>
-          <option name="Category" value="vaccinations">Vaccinations</option>
-          <option name="Category" value="vision">Vision</option>
-
-          {/* <option value="other">Other</option> */}
-        {/* </select> */}
-        {/* <label>Add a category</label>
-    <input type="text"></input> */}
+        {inputFields.map((input, index) => {
+          return (
+            <div key={index}>
+              <input
+                name="category"
+                placeholder="category"
+                value={input.category}
+                onChange={(event) => handleFormChange(index, event)}
+              />
+              <input
+                name="amount"
+                placeholder="amount"
+                value={input.amount}
+                onChange={(event) => handleFormChange(index, event)}
+              />
+            </div>
+          );
+        })}
       </form>
-      <button>Add Category</button>
+      <button onClick={addFields}>Add Category</button>
       <button>Submit Plan</button>
     </div>
   );
