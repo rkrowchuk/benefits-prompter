@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "./Category";
 
-export default function PlanInput() {
+export default function PlanInput(props) {
+  // console.log("props", props.login);
   //App.js is parent component
   const [inputFields, setInputFields] = useState([
     {
