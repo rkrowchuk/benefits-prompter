@@ -4,6 +4,7 @@ import Form from "./Category";
 
 export default function PlanInput(props) {
   const [user, setUser] = useState(props.login.user);
+  console.log("user", user);
 
   useEffect(() => {
     const currentUser = localStorage.getItem("benefitsUser");
@@ -34,7 +35,15 @@ export default function PlanInput(props) {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(inputFields);
+    const data = [inputFields, user];
+    const postURL = "http://localhost:9000/planinput";
+    return fetch(postURL, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   const removeFields = (index) => {
