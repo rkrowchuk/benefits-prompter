@@ -91,20 +91,15 @@ app.get("/planinput", (req, res) => {
 app.post("/planinput", (req, res) => {
   console.log("req", req.body);
   console.log("req.body[1]", req.body[1]);
-  const query = { userEmail: req.body[1] };
-  const update = { userPlan: req.body[0] };
-  // UserModel.findOne({ userEmail: req.body[1] }, (err, success) => {
-  //   if (success) {
-  //     return db.success.insertOne({
-  //       userEmail: success.userEmail,
-  //       userPlan: req.body[0],
-  //     });
-  //   } else {
-  //     console.log(err);
-  //   }
-  // });
-
-  UserModel.updateOne(query, update);
+  // const query = { userEmail: req.body[1] };
+  // const update = { userPlan: req.body[0] };
+  UserModel.updateOne({
+      userEmail: req.body[1]
+  }, {
+      $set: {
+          userPlan: req.body[0]
+      }
+  });
 });
 
 //UserModel.updateOne - no visible error
