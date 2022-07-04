@@ -52,7 +52,7 @@ export default function App() {
           />
           <Route path="/" element={<Login handleLogin={handleLogin} />} />
           <Route path="/planinput" element={<PlanInput login={login.user} />} />
-          <Route path="/dashboard" element={<Dashboard login={login.user} />} />
+          <Route path="/dashboard" element={<Dashboard login={login} />} />
         </Routes>
       </Router>
     </div>
