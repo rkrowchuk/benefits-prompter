@@ -32,6 +32,7 @@ app.listen(9000, function () {
 });
 
 const UserModel = require("./models/UserDB");
+const { db } = require("./models/UserDB");
 
 app.get("/", (req, res) => {
   res.send("Welcome!");
@@ -82,5 +83,30 @@ app.post("/login", (req, res) => {
     }
   });
 });
+
+app.get("/planinput", (req, res) => {
+  res.send("PlanInput");
+});
+
+app.post("/planinput", (req, res) => {
+  console.log("req", req.body);
+  console.log("req.body[1]", req.body[1]);
+  const query = { userEmail: req.body[1] };
+  const update = { userPlan: req.body[0] };
+  // UserModel.findOne({ userEmail: req.body[1] }, (err, success) => {
+  //   if (success) {
+  //     return db.success.insertOne({
+  //       userEmail: success.userEmail,
+  //       userPlan: req.body[0],
+  //     });
+  //   } else {
+  //     console.log(err);
+  //   }
+  // });
+
+  UserModel.updateOne(query, update);
+});
+
+//UserModel.updateOne - no visible error
 
 module.exports = router;
