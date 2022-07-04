@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import PlanInput from "./components/PlanInput";
+import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
 
@@ -51,6 +52,7 @@ export default function App() {
           />
           <Route path="/" element={<Login handleLogin={handleLogin} />} />
           <Route path="/planinput" element={<PlanInput login={login.user} />} />
+          <Route path="/dashboard" element={<Dashboard login={login.user} />} />
         </Routes>
       </Router>
     </div>

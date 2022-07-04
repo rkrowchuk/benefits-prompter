@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Login(props) {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -27,7 +29,8 @@ export default function Login(props) {
             email: "",
             password: "",
           })
-        ) //resetting controlled component (name)
+        )
+        .then(navigate("/dashboard")) //resetting controlled component (name)
         // .then(e.target.reset()) //resetting uncontrolled components (not ideal?)
         .catch((err) => {
           console.log("**error adding user**", err);
