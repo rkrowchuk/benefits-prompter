@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+// parent component is App
 
 export default function Dashboard(props) {
   console.log("props", props);

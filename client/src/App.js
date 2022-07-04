@@ -5,6 +5,7 @@ import PlanInput from "./components/PlanInput";
 import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   const [login, setLogin] = useState({
@@ -45,6 +46,7 @@ export default function App() {
   return (
     <div className="App">
       <Router>
+        {login.status ? <Navbar /> : <></>}
         <Routes>
           <Route
             path="/register"

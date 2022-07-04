@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "./Category";
 
+// parent component is App
+
+
 export default function PlanInput(props) {
   const [user, setUser] = useState(props.login.user);
   console.log("user", user);
