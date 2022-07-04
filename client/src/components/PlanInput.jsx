@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "./Category";
 
 export default function PlanInput(props) {
+  const [user, setUser] = useState(props.login.user);
+
+  useEffect(() => {
+    const currentUser = localStorage.getItem("benefitsUser");
+    console.log("currentUser", currentUser);
+    const benefitsUser = JSON.parse(currentUser);
+    console.log("benefitsUser", benefitsUser);
+    setUser(benefitsUser);
+  }, []);
   // console.log("props", props.login);
   //App.js is parent component
   const [inputFields, setInputFields] = useState([
@@ -33,6 +42,7 @@ export default function PlanInput(props) {
     data.splice(index, 1);
     setInputFields(data);
   };
+
   //Goals:
   // 1. Update the state and send the list of categories to the database (associate with user as well)
 
@@ -40,6 +50,7 @@ export default function PlanInput(props) {
 
   return (
     <div>
+      <h3>Hi {user}</h3>
       Plan Input
       <form onSubmit={submit}>
         {inputFields.map((input, index) => {
