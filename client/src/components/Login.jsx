@@ -43,6 +43,7 @@ export default function Login(props) {
     <div className="form-container">
       <h2 className="form-title">Login</h2>
       <form onSubmit={handleSubmit} className="form">
+        <div className="input-group">
         <label className="form-label">
           Email:
         </label>
@@ -54,6 +55,8 @@ export default function Login(props) {
             placeholder="example@email.com"
             className="form-input"
           />
+          </div>
+          <div className="input-group">
         <label className="form-label">
           Password:
         </label>
@@ -64,8 +67,8 @@ export default function Login(props) {
             onChange={handleChange}
             value={user.password || ""}
             className="form-input"
-
           />
+        </div>
         <button type="submit" className="primary-btn">Submit</button>
       </form>
       <Link to="/register" className="reg-link">

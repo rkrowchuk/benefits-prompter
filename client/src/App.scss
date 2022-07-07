@@ -3,6 +3,9 @@ $dark-teal: #558d97;
 $light-teal: #99bfc6;
 $lightest-blue: #c4ddde;
 
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Quicksand', sans-serif;
@@ -16,11 +19,21 @@ body {
 
 .form {
   display: flex;
-  align-items: end;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid red;
+}
+
+.input-group {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 15px;
 }
 
 .form-input {
-  margin-right: 25px;
+
 }
 
 .form-label {
@@ -34,6 +47,7 @@ body {
   background-color: $light-teal;
   color: #fff;
   transition: all 0.5s ease;
+  margin: 10px 25px 25px 25px;
 }
 
 .primary-btn:hover {
