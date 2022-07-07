@@ -9,7 +9,7 @@ $background: #f1f9f9;
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   background-color: $dark-blue;
   color: #fff;
 }
@@ -21,7 +21,6 @@ input {
 
 .form-container {
   margin: 0 auto;
-  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +37,7 @@ input {
 .input-containers {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .reg-link {
@@ -59,16 +59,20 @@ input {
   border-bottom: 1px solid $lightest-blue;
   color: #fff;
   background-color: $dark-blue;
+  margin-bottom: 10px;
+  padding: 4px;
+  font-family: "Quicksand", sans-serif;
 }
 
 .form-input::placeholder {
-  color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  color: rgba(255, 255, 255, 0.452);
+  font-family: "Quicksand", sans-serif;
 }
 
 .form-label {
   margin-right: 10px;
-} 
+  font-size: 14px;
+}
 
 .primary-btn {
   border-radius: 100px;
@@ -78,7 +82,7 @@ input {
   color: #fff;
   transition: all 0.5s ease;
   margin: 10px 25px 25px 25px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 16px;
 }
 
@@ -86,4 +90,3 @@ input {
   background-color: $lightest-blue;
   transform: scale(1.1);
 }
-
