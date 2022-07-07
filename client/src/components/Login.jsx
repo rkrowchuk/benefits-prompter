@@ -43,6 +43,7 @@ export default function Login(props) {
     <div className="form-container">
       <h2 className="form-title">Login</h2>
       <form onSubmit={handleSubmit} className="form">
+        <div className="input-containers">
         <div className="input-group">
         <label className="form-label">
           Email:
@@ -68,6 +69,7 @@ export default function Login(props) {
             value={user.password || ""}
             className="form-input"
           />
+        </div>
         </div>
         <button type="submit" className="primary-btn">Submit</button>
       </form>

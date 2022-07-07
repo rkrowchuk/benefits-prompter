@@ -2,6 +2,7 @@ $dark-blue: #3d6176;
 $dark-teal: #558d97;
 $light-teal: #99bfc6;
 $lightest-blue: #c4ddde;
+$background: #f1f9f9;
 
 * {
   box-sizing: border-box;
@@ -9,31 +10,60 @@ $lightest-blue: #c4ddde;
 
 body {
   font-family: 'Quicksand', sans-serif;
+  background-color: $dark-blue;
+  color: #fff;
+}
+
+input {
+  border: none;
+  outline: none;
 }
 
 .form-container {
-  border: 1px solid red;
   margin: 0 auto;
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  border: 1px solid red;
+  justify-content: center;
+  width: 60%;
+}
+
+.input-containers {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-link {
+  color: $light-teal;
+  text-decoration: none;
+}
+
+.reg-link:hover {
+  color: $lightest-blue;
 }
 
 .input-group {
-  width: 50%;
   display: flex;
   justify-content: end;
   margin-bottom: 15px;
 }
 
 .form-input {
+  border-bottom: 1px solid $lightest-blue;
+  color: #fff;
+  background-color: $dark-blue;
+}
 
+.form-input::placeholder {
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .form-label {
@@ -48,6 +78,8 @@ body {
   color: #fff;
   transition: all 0.5s ease;
   margin: 10px 25px 25px 25px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
 }
 
 .primary-btn:hover {
