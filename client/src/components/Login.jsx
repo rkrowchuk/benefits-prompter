@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../App.scss";
 export default function Login(props) {
   const navigate = useNavigate();
 
@@ -39,8 +40,8 @@ export default function Login(props) {
   }
 
   return (
-    <div>
-      Login
+    <div className="form-container">
+      <h2 className="form-title">Login</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Email:

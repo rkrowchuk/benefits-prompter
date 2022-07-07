@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./components/Navbar";
+import "./App.scss";
 
 export default function App() {
   const [login, setLogin] = useState({
