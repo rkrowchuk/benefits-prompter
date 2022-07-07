@@ -42,26 +42,31 @@ export default function Login(props) {
   return (
     <div className="form-container">
       <h2 className="form-title">Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className="form">
+        <label className="form-label">
           Email:
-          <input
+        </label>
+        <input
             type="text"
             name="email"
             onChange={handleChange}
             value={user.email || ""}
+            placeholder="example@email.com"
+            className="form-input"
           />
-        </label>
-        <label>
+        <label className="form-label">
           Password:
-          <input
+        </label>
+        <input
             type="password"
             name="password"
+            placeholder="Enter your password"
             onChange={handleChange}
             value={user.password || ""}
+            className="form-input"
+
           />
-        </label>
-        <button type="submit">Submit</button>
+        <button type="submit" className="primary-btn">Submit</button>
       </form>
       <Link to="/register" className="reg-link">
         Don't have an account?
