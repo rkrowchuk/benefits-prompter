@@ -44,11 +44,8 @@ export default function Login(props) {
       <h2 className="form-title">Login</h2>
       <form onSubmit={handleSubmit} className="form">
         <div className="input-containers">
-        <div className="input-group">
-        <label className="form-label">
-          Email:
-        </label>
-        <input
+          <label className="form-label">Email:</label>
+          <input
             type="text"
             name="email"
             onChange={handleChange}
@@ -56,12 +53,9 @@ export default function Login(props) {
             placeholder="example@email.com"
             className="form-input"
           />
-          </div>
-          <div className="input-group">
-        <label className="form-label">
-          Password:
-        </label>
-        <input
+
+          <label className="form-label">Password:</label>
+          <input
             type="password"
             name="password"
             placeholder="Enter your password"
@@ -70,8 +64,9 @@ export default function Login(props) {
             className="form-input"
           />
         </div>
-        </div>
-        <button type="submit" className="primary-btn">Submit</button>
+        <button type="submit" className="primary-btn">
+          Submit
+        </button>
       </form>
       <Link to="/register" className="reg-link">
         Don't have an account?
