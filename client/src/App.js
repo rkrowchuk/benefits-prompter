@@ -8,6 +8,7 @@ import axios from "axios";
 import Navbar from "./components/Navbar";
 import "./styles/App.scss";
 import "./styles/form.scss";
+import "./styles/navbar.scss";
 
 export default function App() {
   const [login, setLogin] = useState({

@@ -1,0 +1,35 @@
+@import "variables";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $light-teal;
+  margin: 0;
+  width: 100vw;
+  top: 0;
+}
+
+.nav-menu {
+  display: flex;
+  margin-right: 10px;
+}
+
+.nav-menu li {
+  list-style-type: none;
+  margin: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: $dark-blue;
+}
+
+.nav-link:hover {
+  color: $background;
+}
+
+.logo {
+  margin-left: 20px;
+  color: $dark-blue;
+}
