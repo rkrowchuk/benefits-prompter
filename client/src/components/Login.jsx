@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../App.scss";
+import "../styles/App.scss";
 export default function Login(props) {
   const navigate = useNavigate();
 
