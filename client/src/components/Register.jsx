@@ -43,57 +43,65 @@ export default function Register(props) {
   }
 
   return (
-    <div>
-      Register
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
+    <div className="form-container">
+      <h2 className="form-title">Register</h2>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="input-containers">
+          <label className="form-label">Name:</label>
           <input
             type="text"
             name="name"
             onChange={handleChange}
             value={user.name || ""}
+            className="form-input"
+            placeholder="first name + last name"
           />
-        </label>
-        <label>
-          Email:
+
+          <label className="form-label">Email: </label>
           <input
             type="text"
             name="email"
             onChange={handleChange}
             value={user.email || ""}
+            className="form-input"
+            placeholder="example@email.com"
           />
-        </label>
-        <label>
-          Birthdate:
+
+          <label className="form-label">Birthdate: </label>
           <input
             type="text"
             name="birthdate"
             onChange={handleChange}
             value={user.birthdate || ""}
+            className="form-input"
+            placeholder="YYYY-MM-DD"
           />
-        </label>
-        <label>
-          Password:
+
+          <label className="form-label">Password:</label>
           <input
             type="password"
             name="password"
             onChange={handleChange}
             value={user.password || ""}
+            className="form-input"
+            placeholder="choose your password"
           />
-        </label>
-        <label>
-          Confirm Password:
+
+          <label className="form-label">Confirm Password: </label>
           <input
             type="password"
             name="confirmPassword"
             onChange={handleChange}
             value={user.confirmPassword || ""}
+            className="form-input"
+            placeholder="type your password again"
           />
-        </label>
-        <button type="submit">Submit</button>
+        </div>
+        <button type="submit" className="primary-btn">
+          Submit
+        </button>
       </form>
-      <Link to="/" className="login-link">
+      <Link to="/" className="reg-link">
         Already have an account? Login here.
       </Link>
     </div>
