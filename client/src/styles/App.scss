@@ -1,0 +1,34 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: $dark-blue;
+  color: #fff;
+  margin: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.primary-btn {
+  border-radius: 100px;
+  border: none;
+  padding: 10px 40px;
+  background-color: $light-teal;
+  color: #fff;
+  transition: all 0.5s ease;
+  margin: 10px 25px 25px 25px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+}
+
+.primary-btn:hover {
+  background-color: $lightest-blue;
+  transform: scale(1.1);
+}

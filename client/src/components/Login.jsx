@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/App.scss";
 export default function Login(props) {
   const navigate = useNavigate();
 
@@ -39,28 +40,33 @@ export default function Login(props) {
   }
 
   return (
-    <div>
-      Login
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
+    <div className="form-container">
+      <h2 className="form-title">Login</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="input-containers">
+          <label className="form-label">Email:</label>
           <input
             type="text"
             name="email"
             onChange={handleChange}
             value={user.email || ""}
+            placeholder="example@email.com"
+            className="form-input"
           />
-        </label>
-        <label>
-          Password:
+
+          <label className="form-label">Password:</label>
           <input
             type="password"
             name="password"
+            placeholder="Enter your password"
             onChange={handleChange}
             value={user.password || ""}
+            className="form-input"
           />
-        </label>
-        <button type="submit">Submit</button>
+        </div>
+        <button type="submit" className="primary-btn">
+          Submit
+        </button>
       </form>
       <Link to="/register" className="reg-link">
         Don't have an account?
