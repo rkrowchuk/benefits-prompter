@@ -17,6 +17,7 @@ const TestSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userPlan: []
 });
 
 const UserDB = mongoose.model("users", TestSchema);

@@ -32,7 +32,7 @@ app.listen(9000, function () {
 });
 
 const UserModel = require("./models/UserDB");
-const { db } = require("./models/UserDB");
+
 
 app.get("/", (req, res) => {
   res.send("Welcome!");
@@ -89,18 +89,26 @@ app.get("/planinput", (req, res) => {
 });
 
 app.post("/planinput", (req, res) => {
-  console.log("req", req.body);
-  console.log("req.body[1]", req.body[1]);
+  // console.log("req", req.body);
+  // console.log("req.body[1]", req.body[1]);
+       UserModel.updateOne(
+          {
+            userEmail: req.body[1],
+          },
+          { $push: {
+            userPlan: req.body[0]
+          }  
+          }, (err) => {
+            if (err) {
+              console.log("error with db update", err);
+            }
+          }
+       )});
+  
+
   // const query = { userEmail: req.body[1] };
   // const update = { userPlan: req.body[0] };
-  UserModel.updateOne({
-      userEmail: req.body[1]
-  }, {
-      $set: {
-          userPlan: req.body[0]
-      }
-  });
-});
+
 
 //UserModel.updateOne - no visible error
 
