@@ -33,20 +33,6 @@ export default function App() {
     localStorage.clear();
   };
 
-  // const loginStatus = () => {
-  //   axios
-  //     .get("/api/logged_in", { withCredentials: true })
-  //     .then((response) => {
-  //       if (response.data.logged_in) {
-  //         handleLogin(response.data);
-  //         localStorage.setItem("benefitsUser", JSON.stringify(response.data));
-  //       } else {
-  //         handleLogout();
-  //       }
-  //     })
-  //     .catch((error) => console.log("api errors:", error));
-  // };
-
   return (
     <div className="App">
       <Router>
