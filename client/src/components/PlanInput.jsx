@@ -4,22 +4,17 @@ import Form from "./Category";
 
 // parent component is App
 
-
 export default function PlanInput(props) {
   const [user, setUser] = useState(props.login.user);
-  console.log("user", user);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const currentUser = localStorage.getItem("benefitsUser");
-    console.log("currentUser", currentUser);
     const benefitsUser = JSON.parse(currentUser);
-    console.log("benefitsUser", benefitsUser);
     setUser(benefitsUser);
   }, []);
-  // console.log("props", props.login);
-  //App.js is parent component
+
   const [inputFields, setInputFields] = useState([
     {
       category: "",
@@ -48,8 +43,7 @@ export default function PlanInput(props) {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-    .then(navigate("/dashboard"));
+    }).then(navigate("/dashboard"));
   };
 
   const removeFields = (index) => {
@@ -57,11 +51,6 @@ export default function PlanInput(props) {
     data.splice(index, 1);
     setInputFields(data);
   };
-
-  //Goals:
-  // 1. Update the state and send the list of categories to the database (associate with user as well)
-
-  // 2. retrieve localStorage (user email) to send it to backend with inputFields
 
   return (
     <div>
