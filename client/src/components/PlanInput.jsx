@@ -9,6 +9,8 @@ export default function PlanInput(props) {
   const [user, setUser] = useState(props.login.user);
   console.log("user", user);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const currentUser = localStorage.getItem("benefitsUser");
     console.log("currentUser", currentUser);
@@ -46,7 +48,8 @@ export default function PlanInput(props) {
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    })
+    .then(navigate("/dashboard"));
   };
 
   const removeFields = (index) => {
