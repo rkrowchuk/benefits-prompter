@@ -25,16 +25,17 @@ export default function App() {
     localStorage.setItem("benefitsUser", JSON.stringify(data.email));
   };
 
-  // const handleLogout = () => {
-  //   setLogin({
-  //     status: false,
-  //     user: {},
-  //   });
-  // };
+  const handleLogout = () => {
+    setLogin({
+      status: false,
+      user: {},
+    });
+    localStorage.clear();
+  };
 
   // const loginStatus = () => {
   //   axios
-  //     .get("/api/logged_in", { withCredentials: true }) //what does this mean?
+  //     .get("/api/logged_in", { withCredentials: true })
   //     .then((response) => {
   //       if (response.data.logged_in) {
   //         handleLogin(response.data);
@@ -49,7 +50,7 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        {login.status ? <Navbar /> : <></>}
+        {login.status ? <Navbar handleLogout={handleLogout} /> : <></>}
         <Routes>
           <Route
             path="/register"
