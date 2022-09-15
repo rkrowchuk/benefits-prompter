@@ -1,10 +1,9 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import PlanInput from "./components/PlanInput";
 import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import axios from "axios";
 import Navbar from "./components/Navbar";
 import "./styles/App.scss";
 import "./styles/form.scss";
@@ -43,7 +42,7 @@ export default function App() {
           />
           <Route path="/" element={<Login handleLogin={handleLogin} />} />
           <Route path="/planinput" element={<PlanInput login={login.user} />} />
-          <Route path="/dashboard" element={<Dashboard login={login} />} />
+          <Route path="/dashboard" element={<Dashboard login={login.user} />} />
         </Routes>
       </Router>
     </div>
