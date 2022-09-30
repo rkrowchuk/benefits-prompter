@@ -105,14 +105,15 @@ app.post("/planinput", (req, res) => {
   );
 });
 
-app.get("/dashboard", (req, res) => {
-  const data = UserModel.findOne({ userEmail: req.body.email }, (err, success) => {;
-  console.log("START🤔data", data.schema.obj.userName);
-  });
-  res.send(data);
-  // console.log("res.data", res.data);
-  // 
-});
+// app.get("/dashboard", (req, res) => {
+//   const data = {text: "hello from server"};
+//   // const data = UserModel.findOne({ userEmail: req.body.email }, (err, success) => {;
+//   // console.log("START🤔data", data.schema.obj.userName);
+//   // });
+//   res.send("Dashboard");
+//   // console.log("res.data", res.data);
+//   // 
+// });
 
 app.post("/dashboard", (req, res) => {
   console.log("req.body", req.body);
